@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*---------------------Ex9----------------------*/
+    function formatDate(date){
+        var a = new Date() - date;
+        if (a<1000) return "только что";
+
+        var b = Math.floor(a/1000);
+        if (b < 60) return b + " сек.назад";
+
+        var c = Math.floor(a/60000);
+        if (c < 60) return c + " мин.назад";
+
+        var d = date;
+        d = [
+            '0' + d.getDate(),
+            '0' + (d.getMonth() + 1),
+            '' + d.getFullYear(),
+            '0' + d.getHours(),
+            '0' + d.getMinutes()
+        ];
+         for (var i = 0; i<d.length; i++){
+             d[i] = d[i].slice(-2);
+         }
+         return d.slice(0,3).join(".") + " " + d.slice(3).join(":");
+    }
+
+   /* alert( formatDate(new Date(new Date - 1)) );
+    alert( formatDate(new Date(new Date - 30 * 1000)) );*/
+    //alert( formatDate(new Date(new Date - 5 * 60 * 1000)) );
+    alert( formatDate(new Date(new Date - 5 * 60 * 1000)) ); // вчерашняя дата в формате "дд.мм.гг чч:мм"
+    /*---------------------Ex8----------------------*/
+/*    function formatDate(date) {
+        var dd = date.getDate();
+        if (dd<10) dd = '0' + dd;
+
+        var mm = date.getMonth()+1;
+        if (mm<10) mm = '0' + mm;
+
+        var ee = date.getFullYear()%100;
+        if (ee<10) ee = '0' + ee;
+
+        alert(dd + "." + mm + "." + ee);
+    }
+    var date = new Date();
+    formatDate(date);*/
+    /*    function formatDate(date) {
+        var options = {
+            year: "numeric",
+            month : "long",
+            day: "numeric"
+        };
+        var p = new Date(date);
+        p = p.toLocaleString("ru", options);
+        alert(p);
+    }
+    var date = new Date();
+    formatDate(date);*/
+
+    /*---------------------Ex7----------------------*/
+/*    function getSecondToday(){
+        var dataNow = new Date();
+        var shortD = new Date(dataNow.getFullYear(), dataNow.getMonth(), dataNow.getDate()+1);
+        var p = shortD - dataNow;
+        alert(Math.floor(p/1000));
+    }
+    getSecondToday();*/
+    /*---------------------Ex6----------------------*/
+/*    function getSecondToday(){
+        var dataNow = new Date();
+        var shortD = new Date(dataNow.getFullYear(), dataNow.getMonth(), dataNow.getDate());
+        var p = dataNow - shortD;
+        alert(Math.floor(p/1000));
+    }
+    getSecondToday();*/
+    /*---------------------Ex5----------------------*/
+    /*function getLastDayOfMonth(year, month){
+        var p = new Date(year, month+1, 0);
+        alert(p);
+    }
+    getLastDayOfMonth(2012, 1);*/
+    /*--------------------;-Ex4----------------------*/
+    /*function getDateAgo(date, days) {
+        var d = new  Date(date);
+        d.setDate(d.getDate() - days);
+        alert(d.getDate());
+    }
+    var datafr = new Date(2015, 0, 2);
+    getDateAgo(datafr, 2);*/
+    /*---------------------Ex2----------------------*/
+    /*function getWeekTwo(date) {
+        alert(date.toLocaleString('ru', {weekday: 'short'}));
+    }
+    function getWeek(date){
+        var p = date.getDay();
+        var days=["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ","ВС"];
+        alert(days[(+p)-1]);
+    }
+    var d= new Date();
+    getWeekTwo(d);*/
+    /*---------------------Ex1----------------------*/
+    /*var data = new Date(2012, 1, 20, 3, 12, 0, 0);
+    alert(data);*/
+    /*----------------------------------------------*/
+/*
+    'use strict';
+    var arr = [];
+    for (var i = 0; i < 10; i++) arr[i] = 0;
+
+    function walkIn(arr) {
+        for (var key in arr) arr[key]++;
+    }
+
+    function walkLength(arr) {
+        for (var i = 0; i < arr.length; i++) arr[i]++;
+    }
+
+    function bench(f) {
+        for (var i = 0; i < 10; i++) f(arr);
+    }
+
+    console.time("All Benchmarks");
+
+    console.time("walkIn");
+    bench(walkIn);
+    console.timeEnd("walkIn");
+
+    console.time("walkLength");
+    bench(walkLength);
+    console.timeEnd("walkLength");
+
+    console.timeEnd("All Benchmarks");
+
+*/
+  /*  var arr = [];
+    for (var i = 0; i < 1000; i++) arr[i] = 0;
+
+    function walkIn(arr) {
+        for (var key in arr) arr[key]++;
+    }
+
+    function walkLength(arr) {
+        for (var i = 0; i < arr.length; i++) arr[i]++;
+    }
+
+    function bench(f) {
+        var date = new Date();
+        for (var i = 0; i < 1000; i++) f(arr);
+        return new Date() - date;
+    }
+    performance.now()
+    // bench для каждого теста запустим много раз, чередуя
+    var timeIn = 0,
+        timeLength = 0;
+    for (var i = 0; i < 100; i++) {
+        timeIn += bench(walkIn);
+        timeLength += bench(walkLength);
+    }
+
+    alert( 'Время walkIn: ' + timeIn + 'мс' );
+    alert( 'Время walkLength: ' + timeLength + 'мс' );*/
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*--------------------Exs2-------------------------------*/
+    var arr = [1, 2, 3, 4, 5];
+    function getSums(arr) {
+        var mass = [];
+        if (!arr.length) return mass;
+        var three = arr.reduce(function (sum,current) {
+            mass.push(sum);
+            return sum + current;});
+        mass.push(three);
+    }
+    var a = setTimeout(getSums, 54000, arr);
+    alert(a);
+    alert(getSums(arr));
+    /*--------------------Exs1-------------------------------*/
+    /*    var arr = ["Есть", "жизнь", "на", "Марсе"];
+    var lengthOfEl = arr.map(function (name) {
+        return name.length;
+    });
+    alert(lengthOfEl);*/
+</script>
+</body>
+</html>

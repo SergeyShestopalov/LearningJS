@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //-------------------------THREE--------------------------
+
+    function truncate(str, macbeth) {
+        var p = str.length;
+        var str1="...";
+        if(p>macbeth){
+            return str.slice(0,macbeth-3)+str1;
+        }else return str;
+    }
+    alert(truncate("privejjjjt",6));
+
+    //-------------------------TWO----------------------------
+
+    function checkSpam(str) {
+        var p = str.toLowerCase();
+        if(!(p.indexOf("viagra")==-1)){
+            alert("True");
+        } else if(!(p.indexOf("xxx")==-1)){
+            alert("True");
+        } else alert("False");
+    }
+    checkSpam("freeSDvsdzd");
+
+    //-------------------------ONE----------------------------
+
+    function ucFirst (str) {
+        strBig=str[0].toUpperCase()+str.substr(1);
+        return strBig;
+    }
+    var p = prompt("Enter verbs: ");
+    alert(ucFirst(p));
+
+    //------------------------------------------------------
+
+    var str="Hello World!";
+    document.write(+str.length + "<br>");
+    str.charAt(0);
+    document.write(str.indexOf("llo")+"<br>");
+    var pos=0;
+    var target='o';
+    while(true){
+        var foundPos=str.indexOf(target,pos);
+        if (foundPos==-1){
+            break;
+        }
+        document.write("founded on positions: "+ pos+"<br>");
+       pos=foundPos+1;
+    }
+    document.write(str.substring(2,11));
+    document.write('<br>');
+    document.write(str.substr(0,6)+str.substr(6,2));document.write('<br>');
+    document.write('<br>');
+    document.write(str.charCodeAt(0));
+</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*-----------------------------Ex1------------------------------*/
+
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++) {
+            var shooter = (function(x) { // функция-стрелок
+                return function () {
+                  alert(x);
+                }; // выводит свой номер
+            })(i);
+            shooters.push(shooter);
+        }
+            return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0](); // стрелок выводит 10, а должен 0
+    army[5](); // стрелок выводит 10...
+    // .. все стрелки выводят 10 вместо 0,1,2...9
+    /*-----------------------------Ex1------------------------------*/
+/*    var arr = [1,2,3,4,5,6,7];
+
+    function filter(arr, func) {
+        var result = [];
+        for (var i = 0; i<arr.length;i++){
+            var val = arr[i];
+            if(func(val)){
+                result.push(val);
+            }
+        }
+        return result;
+    }
+    function inBetween(a,b) {
+        return function (x) {
+            if (x >= a && x <= b)return true;
+        }
+    }
+    function inArray(mass) {
+        return function (x) {
+            for (var i = 0; i < arr.length; i++) {
+                var mass1 = mass[i];
+                if (mass1 == x) return true;
+            }
+        }
+    }
+
+    alert( filter(arr, inBetween(3, 6)) ); // 3,4,5,6
+
+    alert( filter(arr, inArray([1, 2, 10])) ); // 1,2*/
+/*----------0-------------------Ex1------------------------------*/
+    /*var users = [{
+        name: "Вася",
+        surname: 'Иванов',
+        age: 20
+    },{
+        name: "Петя",
+        surname: 'Чапаев',
+        age: 25
+    },{
+        name: "Маша",
+        surname: 'Медведева',
+        age: 18
+    }];
+    function byField(field) {
+        return function (a,b) {
+            return a[field] > b[field] ? 1:-1;
+        }
+    }
+
+    users.sort(byField('name'));
+    users.forEach(function(user) {
+        alert( user.name );
+    });
+
+    users.sort(byField('age'));
+    users.forEach(function(user) {
+        alert( user.name );
+    });*/
+    /*-----------------------------Ex1------------------------------*/
+/*    function makeBuffer() {
+        var arr = '';
+        function buffer(str) {
+            var str1=arguments[0];
+            if (str1 != null && str1 != undefined){
+                arr += str1;
+            }else {
+                return arr;
+            }
+        }
+        buffer.reset = function () {
+          arr = '';
+        };
+        return buffer;
+    }
+    var buffer = makeBuffer();
+
+    buffer('Замыкания');
+    buffer(' Использовать');
+    buffer(' Нужно!');
+    alert( buffer() );
+    buffer.reset();
+    alert(buffer());
+    /!*-----------------------------------------*/
+
+/*    function sum(a) {
+        return function (b) {
+            var d = a + b;
+            return alert(d);
+        }
+    }
+    sum(2)(2);*/
+/*-----------------------------------------------------------*/
+    /*
+    function makeCounter() {
+        function counter12() {
+            return counter12.currentCount++;
+        };
+        counter12.currentCount = 1;
+
+        return counter12;
+    }
+
+    var counter11 = makeCounter();
+    alert( counter11() ); // 1
+    alert( counter11() ); // 2
+*/
+
+    /*function makeCounter() {
+        var currentCount = 1;
+
+        return function() {
+            return currentCount++;
+        };
+    }
+
+    var counter = makeCounter(); // [[Scope]] -> {currentCount: 1}
+
+    alert( counter() ); // 1, [[Scope]] -> {currentCount: 1}
+    alert( counter() ); // 2, [[Scope]] -> {currentCount: 2}
+    alert( counter() ); // 3, [[Scope]] -> {currentCount: 3}*/
+</script>
+</body>
+</html>

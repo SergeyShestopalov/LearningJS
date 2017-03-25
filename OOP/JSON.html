@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    var leader = {
+        name: "Василий Иванович"
+    };
+
+    var soldier = {
+        name: "Петька"
+    };
+
+    // эти объекты ссылаются друг на друга!
+    leader.soldier = soldier;
+    soldier.leader = leader;
+
+    var a = dojox.json.ref.toJson(team);
+    var b = dojox.json.ref.fromJson(a);
+/***************************************************/
+    /*    var leader = {
+        name: "Василий Иванович",
+        age: 35
+    };
+    var lead = JSON.stringify(leader);
+    alert(lead);
+    var lead1 = JSON.parse(lead);
+    alert(lead1.name + " " + lead1.age)*/
+</script>
+</body>
+</html>

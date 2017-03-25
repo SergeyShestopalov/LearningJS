@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    function f(x) {
+        return Math.random() * x; // random для удобства тестирования
+    }
+
+    function makeCaching(f) {
+        var acum = {};
+        return function (x) {
+            if (!(x in acum)){
+                acum[x] = f.call(this,x);
+            }
+            return acum[x];
+        };
+    }
+
+    f = makeCaching(f);
+
+    var a, b;
+
+    a = f(1);
+    b = f(1);
+    alert( a == b ); // true (значение закешировано)
+
+    b = f(2);
+    alert( a == b ); // false, другой аргумент => другое значение
+
+    /*
+    function work(a,b) {
+         return alert(a+b);// work - произвольная функция, один аргумент
+    }
+
+    function makeLogging(f, log) {
+        function wrapper() {
+            var sliceq = [].slice;
+            log.push(sliceq.call(arguments));
+            return f.apply(this, arguments);
+        }
+        return wrapper;
+    }
+    var log = [];
+
+    work = makeLogging(work, log);
+
+    work(1,2); // 1, добавлено в log
+    work(5,11); // 5, добавлено в log
+    for (var i = 0; i < log.length; i++) {
+        var args = log[i];
+        alert( 'Лог:' + args.join() ); // "Лог:1", затем "Лог:5"
+     }*/
+</script>
+</body>
+</html>

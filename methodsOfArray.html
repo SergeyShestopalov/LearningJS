@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*------------EXS#10--------------*/
+        function unique(arr) {
+            var obj = {};
+            for (var i=0; i< strings.length; i++){
+                var newStr = arr[i];
+                obj[newStr] = arr[i];
+            }
+            var result = [];
+            for (var prop in obj){
+                result.push(obj[prop]);
+            }
+            return result;
+        }
+        var strings = ["кришна", "кришна", "харе", "харе",
+            "харе", "харе", "кришна", "кришна", "8-()"];
+        unique(strings);
+
+        /*------------EXS#9--------------*/
+        var arr = ["воз", "киборг", "корсет", "ЗОВ", "гробик", "костер", "сектор"];
+        function aclean(arr) {
+
+            var obj = {};
+
+            for (var i = 0; i < arr.length; i++) {
+                var newArr = arr[i].toLowerCase().split("").sort().join("");
+                obj[newArr] = arr[i];
+            }
+
+            var result = [];
+
+            for (var prop in obj) {
+              result.push(obj[prop]);
+            }
+            return result;
+        }
+
+        aclean(arr);
+        /*------------EXS#8--------------*/
+      /*var list = {
+        value:1,
+        next:{
+            value:2,
+            next:{
+                value:3,
+                next:{
+                    value:4,
+                    next:null
+                }
+            }
+        }
+      };
+      function printList(list){
+          var tmp = list;
+          while (tmp){
+              alert(tmp.value);
+              tmp = tmp.next;
+          }
+      }*/
+      /*function printListButRec(list) {
+          var tmp = list;
+          if (tmp != null){
+              alert(tmp.value);
+              printListButRec(tmp.next);
+          }
+      }
+      function printListButRevRec(list) {
+          if (list.next){
+              printListButRevRec(list.next);
+          }
+          alert(list.value);
+      }
+
+      function printListRev(list) {
+          var arr = [];
+          var tmp = list;
+          while (tmp) {
+              arr.push(tmp.value);
+              tmp = tmp.next;
+          }
+          for (var i = arr.length -1 ; i>0 ; i--){
+              alert(arr[i]);
+          }
+
+      }
+      printListRev(list);*/
+
+        /*------------EXS#7--------------*/
+ /*       var vasya = { name: "Вася", age: 23 };
+        var masha = { name: "Маша", age: 18 };
+        var vovochka = { name: "Вовочка", age: 6 };
+
+        var people = [ vasya , masha , vovochka ];
+
+        function sortAge(a,b) {
+                if (a.age > b.age) return 1;
+                if (a.age < b.age) return -1;
+        }
+        people.sort(sortAge);
+        for (var i = 0; i<people.length;i++){
+            alert(people[i].name + people[i].age);
+        }*/
+        /*------------EXS#6--------------*/
+/*        var arr = ["HTML","JavaScript","CSS"];
+        var arrSorted=arr.slice().sort();
+        alert("first arr: " + arr + "</br>" + "second arr: " + arrSorted);
+        */
+        /*------------EXS#5--------------*/
+/*        function compareNumeric(a,b) {
+            if(a>b)return -1;
+            if(a<b)return 1;
+        }
+        var arr = [5, 2, 1, -10, 8];
+        arr.sort(compareNumeric);
+        alert(arr);*/
+        /*------------EXS#4--------------*/
+/*  function filterRangeInPlace(arr, a, b) {
+      var timeVariable;
+      var mass=[];
+      for (var i = 0; i<arr.length; i++){
+          timeVariable = arr[i];
+          if (timeVariable>=a && timeVariable<=b){
+              mass.push(arr[i]);
+          }
+      }
+      return alert(mass);
+  }
+  var arr = [5, 3, 8, 1];
+  filterRangeInPlace(arr, 1, 4);
+*/
+        /*------------EXS#3--------------*/
+   /*     var obj = {
+            className: 'open new menu new'
+        };
+        function removeClass(obj,cls) {
+            var arr = obj.className ? obj.className.split(" "):[];
+            for (var i = 0; i<arr.length; i++){
+                if(arr[i]==cls){
+                    arr.splice(i,1);
+                    i--;
+                }
+            }
+            obj.className = arr.join('');
+        }
+        removeClass(obj,'new');*/
+        /*------------EXS#2--------------*/
+  /*      function camelize(str) {
+
+            var newMass = str.split("-");
+            var string12 = '';
+
+            for (var i = 1; i<newMass.length; i++){
+                newMass[i] = newMass[i].charAt(0).toUpperCase()+newMass[i].slice(1);
+            }
+            string12 = newMass.join('');
+
+            alert("String :" + string12);
+        }
+        camelize("ba-c-kground-color");*/
+        /*------------EXS#1--------------*/
+    /* var obj = {
+       className: 'open menu new'
+     };
+     function addClass(obj,cls){
+         var classes = obj.className ? obj.className.split(' '):[];
+         for (var i = 0; i< classes.length; i++){
+             if(classes[i] == cls) return;
+         }
+         classes.push(cls);
+         obj.className = classes.join(" ");
+     }
+     addClass(obj,'new');*/
+
+        /*   function printf(text) {
+            document.write(text);
+            document.write('<br>');
+        }
+
+        //--------------------SPLIT--------------------------
+        var str='Этот текст будет переделан в массив';
+        var arr=str.split('',5);
+        for (var i=0;i<arr.length;i++){
+            //alert("You get massage" + arr[i]);
+        }
+        //----------------------JOIN--------------------------
+        //1
+        var art=[1,'werfew','wref5','234'];
+        var srr=art.join('..;');
+        printf(srr);
+        //2
+        var gro=new Array(4);
+        printf(gro.join('ka'));
+        //3
+        art.splice(1,1);
+        //
+      */
+    </script>
+</body>
+</html>

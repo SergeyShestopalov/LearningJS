@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //--------------УТКА И ПОЛИМОРФНАЯ функция-------------------
+    //1
+    /*function seyHi(text) {
+        if(Array.isArray(text)){
+            text.forEach(seyHi);
+        }else {
+            alert('Hello ' + text);
+        }
+    }
+    seyHi(["Sergey", 'Serrr', 'Jack']);*/
+    //2
+    function seyHi(text) {
+        if(text.splice){
+            text.forEach(seyHi);
+        }else {
+            alert("Hello "+text);
+        }
+    }
+    seyHi(["Sergey", 'Serrr', 'Jack']);
+    //---------------------------------------------------
+    /*function chek(obj) {
+        return {}.toString.call(obj);
+    }
+    function print(text) {
+        document.write(text);
+        document.write("<br>");
+    }
+    var obj = {
+        main:450,
+        gsd:'e3d'
+    };
+    var d=null;
+    print(chek(d));
+    var str='gfaccedsvc';
+    var mas=['asfc',12,'efdczx'];
+    print(chek(obj));
+    print(chek(mas));
+    print(chek(str));
+    print(Array.isArray(mas));
+    function User() {}
+
+    var user = new User();
+
+    alert( user instanceof User )
+    */
+</script>
+</body>
+</html>

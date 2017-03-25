@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript</title>
+</head>
+<body>
+    <script TYPE="text/javascript">
+        //<---------------------factorial-------------------------->
+        // 1
+        function factorial(n) {
+            if(n!=1){
+                return n*factorial(n-1);
+            }
+            else return n;
+        }
+        document.write(factorial(5));
+        // 2
+        function factorialtwo(n) {
+            var factorial=1;
+            for (var i = 1; i<=n;i++){
+                factorial=factorial*i;
+            }
+            return factorial;
+        }
+        document.write(factorialtwo(5));
+        //<---------------------fibonachi-------------------------->
+        function fibonachi(n) {
+            if (n>1 && n!=1){
+                return fibonachi(n-1)+fibonachi(n-2);
+            }
+            else {return n;}
+        }
+        document.write(fibonachi(5));
+
+        //<---------------------arfmprogr-------------------------->
+        // 1
+         function summ(n) {
+            if(n!=1){
+                return n+summ(n-1);
+            }
+            else {
+                return n;
+            }
+        }
+        document.write(summ(100));
+        // 2
+        function summtwo(n) {
+            var result = 0;
+            for (var i = 1; i <= n; i++) {
+                result=result+i;
+            }
+            return result;
+        }
+        document.write(summtwo(100));
+        //<---------------------pow(x,n)-------------------------->
+        function pow(x, n) {
+            if(n!=1){
+                return x*pow(x, n-1);
+            } else {return x;}
+        }
+        alert(pow(2,5));
+         //<---------------------function-------------------------->
+         function sayHi() {   // (1)
+            alert( "Привет" );
+        }
+
+        var func = sayHi;    // (2)
+        func(); // Привет    // (3)
+
+        sayHi = null;
+        sayHi();
+        func();
+
+    </script>
+</body>
+</html>

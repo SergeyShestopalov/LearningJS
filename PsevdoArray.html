@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<script>
+    /*-------------------Ex2----------------------*/
+/*
+    function summ() {
+        var sum = 0;
+        for (var i=0; i<arguments.length;i++){
+            sum += arguments[i];
+        }
+        alert(sum);
+    }
+    summ(1,2,5,2,5,6);
+*/
+
+    /*-------------------Ex1----------------------*/
+   /* function f(x) {
+        alert(arguments.length ? 1 : 0);
+    }
+    f(undefined);*/
+    /*function f(x) {
+        var arr = [];
+        if (arguments[0]==undefined || arguments[0]==true){
+            for (var i=0; i<arguments.length;i++){
+                arr[i] = arguments[i];
+            }
+            alert(arr.length);
+        }else {
+            alert("0");
+        }
+    }
+    //f(undefined);
+    f();*/
+    /*--------------------------------------------*/
+    'use strict';
+    var vasya = {
+        age: 21,
+        name: 'Вася',
+        surname: 'Петров'
+    };
+
+    var user = {
+        isAdmin: false,
+        isEmailConfirmed: true
+    };
+
+    var student = {
+        university: 'My university'
+    };
+
+    function copy() {
+        var dst = arguments[0];
+
+        for (var i = 1; i < arguments.length; i++) {
+            var arg = arguments[i];
+            for (var key in arg) {
+                dst[key] = arg[key];
+            }
+        }
+
+        return dst;
+    }
+
+    // добавить к vasya свойства из user и student
+    copy(vasya, user, student);
+
+    alert( vasya.isAdmin ); // false
+    alert( vasya.university ); // My university
+</script>
+</body>
+
+</html>

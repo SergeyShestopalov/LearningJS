@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /***************************ПРИМЕР С МЫШКОЙ********************************/
+    function f1(x) {
+        alert( x );
+    }
+
+    function throttle(func, ms) {
+
+        var Key = false,
+            savedArgs,
+            savedFunc;
+
+        function wrapper() {
+            if(Key) {
+                savedArgs = arguments;
+                savedFunc = this;
+                return;
+            }
+
+            func.apply(this, arguments);
+            Key = true;
+
+            setTimeout(function () {
+                Key = false;
+                if (savedArgs) {
+                    wrapper.apply(savedFunc, savedArgs);
+                    savedFunc = savedArgs = null;
+                }
+            },ms)
+        }
+        return wrapper;
+    }
+
+    var f = throttle(f1, 1000);
+
+    f(1); // выполнится сразу же
+    f(2); // игнор
+    f(3);
+    f(5);
+    f(6);
+
+/* *************************ЗАДЕРЖКА ВЫВОДА*********************************** */
+    /*
+  function delay(func, context) {
+      return function () {
+          var voidFunc = func;
+          var voidArg = arguments;
+
+          setTimeout(function () {
+                voidFunc.apply(this, voidArg);
+            }, context);
+        }
+    }
+    function f(x) {
+        alert( x );
+    }
+
+    var f1000 = delay(f, 1000);
+    var f1500 = delay(f, 1500);
+
+    f1000("тест"); // выведет "тест" через 1000 миллисекунд
+    f1500("тест2"); // выведет "тест2" через 1500 миллисекунд
+*/
+/*********************ПООЧЕРЕДИ В КОНСОЛЬ************************/
+    /*
+function printNumberInterval() {
+    var i = 0;
+    var a = setTimeout(func, 100);
+    function func() {
+        console.log(i);
+        if (i < 20) {
+            i++;
+            a = setTimeout(func, 100);
+        }else {
+            clearTimeout(a);
+        }
+    }
+}
+*/
+//printNumberInterval();
+</script>
+</body>
+</html>

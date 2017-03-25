@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*********************************************************/
+    function Calculator() {
+        var method = {
+            '+': function (a, b) {
+                return a + b;
+            },
+            '-': function (a, b) {
+                return a - b;
+            }
+        };
+        this.calculate = function (str) {
+            var clc = str.split(' ');
+            var a = +clc[0];
+            var b = +clc[2];
+            var op = clc[1];
+
+            if (!method[op] || isNaN(a) || isNaN(b)) {
+                return NaN;
+            }
+            return method[op](a, b);
+        };
+        this.addMethod = function (name, func) {
+            method[name] = func;
+        }
+    }
+
+    var calc = new Calculator();
+
+    calc.addMethod("*",function(a, b) {
+        return a * b;
+    });
+    calc.addMethod("/", function(a, b) {
+        return a / b;
+    });
+    calc.addMethod("**", function(a, b) {
+        return Math.pow(a, b);
+    });
+    var result = calc.calculate('2 / 2');
+    alert(result);
+    /*********************************************************/
+    /*function Accumulator(stringValue) {
+        var a = +stringValue;
+        this.read = function () {
+            a += +prompt("Press a = ", 0);
+            return a;
+        };
+        this.value = function () {
+            return +a;
+        }
+    }
+    var accumulator = new Accumulator(1);
+    accumulator.read();
+    accumulator.read();
+    alert( accumulator.value() );*/
+    /*********************************************************/
+/*    function Calculator() {
+
+        this.read = function () {
+            this.a = +prompt("Press a = ",0);
+            this.b = +prompt("Press b = ",0);
+        };
+        this.sum = function () {
+            return this.a + this.b;
+        };
+        this.mul = function () {
+            return this.a * this.b;
+        };
+    }
+    var calculator = new Calculator();
+    calculator.read();
+    alert(calculator.sum());
+    alert(calculator.mul());*/
+/*********************************************************/
+
+/*    function sum(a) {
+
+        var summ = a;
+
+        function f(b) {
+            summ +=b;
+            return f;
+        }
+
+        f.toString = function () {
+            return summ;
+        };
+
+        return f;
+    }
+
+    alert(sum(2)(3)(4));*/
+    /*********************************************************************/
+    /*
+    var ladder = {
+        step: 0,
+        up: function() { // вверх по лестнице
+            this.step++;
+            return this;
+        },
+        down: function() { // вниз по лестнице
+            this.step--;
+            return this;
+
+        },
+        showStep: function() { // вывести текущую ступеньку
+            alert( this.step );
+            return this;
+        }
+    };
+    ladder.up().up().down().up().down().showStep();
+    *//******************************************************************/
+/*    var calculator1 = {
+      read: function () {
+          this.a = +prompt("a?", 0);
+          this.b = +prompt("b?", 0);
+      },
+      sum: function () {
+          return alert(this.a + this.b);
+      },
+      mul: function () {
+          return alert(this.a * this.b);
+      }
+    };
+    calculator1.read();
+    calculator1.mul();
+    calculator1.sum();*/
+    /******************************************************************/
+/*    var calculator = {
+        read: function () {
+            var mass = [];
+            var j = 0;
+            while (j != 2) {
+                mass.push(prompt("Введите число: "));
+                j++;
+            }
+
+            for (var i = 0; i< mass.length; i++){
+                this[i] = mass[i];
+            }
+        },
+        sum: function () {
+            summa = 0;
+            for (var prop in this){
+                if (this[prop]==="" || this[prop]===null || isNaN(this[prop])) {break;
+                } else {summa += +this[prop]}
+            }
+            alert(summa);
+        },
+        mul: function () {
+            mult = 1;
+            for (var prop in this){
+                if (this[prop]==="" || this[prop]===null || isNaN(this[prop])) {break;
+                } else {mult *= +this[prop]}
+            }
+            alert(mult);
+        }
+
+    };
+    calculator.read();
+    calculator.sum();
+    calculator.mul();*/
+</script>
+</body>
+</html>

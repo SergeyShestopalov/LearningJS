@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    //---------------Filter-----------------------------
+
+//    var arr=[4,5,2,-1,-40,234,4,53,424,34];
+//    var arr2=arr.filter(function (name) {
+//        return name>0;
+//    })
+//    alert(arr2);
+//
+//    //-------------------Перебор свойств массива--------
+//
+//    var arrs=['Apple','Grape','Strawberry'];
+//    arrs.forEach(function (item,i,arrs) {
+//        alert(i +':'+item+'(mass:'+arrs+')');
+//    });
+
+    //-----------------Решето Эрастофена----------------
+
+    var erast=[];
+    var fasd=[];
+    var n=prompt("Enter max value of Array : ");
+    for (var i=2;i<=n;i++){
+        erast[i]=true;
+    }
+    p=2;
+    do {
+    for(var i=2*p;i<=n;i+=p){
+        erast[i]=false;
+    }
+    for(var i=p+1;i<=n;i++){
+        if (erast[i]); break;
+    }
+    p=i;
+    }while (p*p<=n);
+    for(var i=0;i<=n;i++){
+        if(erast[i]===true){
+            fasd.push(i);
+        }
+    }
+    alert(fasd);
+
+//
+//    //-----------------Вильтр диапазона-----------------
+//
+//    function filterRange(arr,a,b){
+//        var mass=[];
+//        for (var i=0; i<arr.length;i++){
+//            if (arr[i]>=a && arr[i]<=b){
+//                mass.push(arr[i]);
+//            }
+//        }
+//        return alert(mass);
+//    }
+//    var arr=[1,3,4,6,2,5,6,7,3,2,5,7];
+//    var a=prompt("Введите левую границу :");
+//    var b=prompt("Введите правую границу :");
+//    filterRange(arr,a,b);
+//
+//    //---------------------------------------------------
+//
+//    var mass=[];
+//    while(true){
+//        var symbol=prompt("Введите число",0);
+//        if (symbol==="" || symbol===null || isNaN(symbol)) break;
+//        mass.push(+symbol);
+//    }
+//
+//    var summ=0;
+//    for(var i=0;i<mass.length;i++){
+//        summ+=mass[i];
+//    }
+//    alert(summ);
+//
+//    //-----------------------------------------------------
+//
+//    var goods=['sss',5,'face',323];
+//    goods.push('компьютер','fdcs');
+//    goods.pop();
+//    document.write(goods);
+//
+//    //------------------------------------------------------
+//
+//    var styles=['Джаз', 'Блюз'];
+//    styles.push('Рок-н-Ролл');
+//    styles[styles.length-2]='Классика';
+//    alert(styles.shift());
+//    styles.unshift('Рэп','Регги');
+//
+//    //---------------------------------------------------------
+//
+//    var arr=['Apple','Orange','Pineapple','Lemon'];
+//    var min=(arr.length-1)-(arr.length-2);
+//    var max=arr.length-1;
+//    var rand=min+Math.floor(Math.random()*(max+1-min));
+//    alert(arr[rand]);
+
+    //-------------------------------------------------------
+</script>
+
+</body>
+</html>

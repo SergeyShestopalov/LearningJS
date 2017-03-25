@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+    function bind(func, context) {
+            return function() {
+                return func.apply(context, arguments);
+            };
+        }
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        // метод для вызова из ask
+        loginDone: function(result) {
+            alert( this.login + (result ? ' вошёл в сайт' : ' ошибка входа') );
+        },
+
+        checkPassword: function() {
+/*            var a = this;
+            ask("Ваш пароль?", this.password,
+                function() {
+
+                        a.loginDone(true);
+                },
+                function() {
+                    a.loginDone(false);
+                }
+            );*/
+            ask("Ваш пароль?", this.password,
+                this.loginDone.bind(this,true),
+                this.loginDone.bind(this,false));
+        }
+    };
+
+    var vasya = user;
+    user = null;
+    vasya.checkPassword();
+
+
+    /*    var user = {
+        firstName: "Вася",
+        sayHi: function() {
+            alert( this.firstName );
+        }
+    };
+
+    setTimeout(user.sayHi, 1000);*/
+/*
+    function applyAll(method,arr) {
+        var slice = [].slice;
+        return arguments[0].apply(null,slice.call(arguments,1));
+
+    }
+
+     alert(applyAll(Math.max,2,-2,-3));
+
+*/
+
+
+    /*function applyAll(method,arr) {
+        var arr1 = [];
+        for(var i= 1; i<arguments.length;i++){
+            arr1.push(arguments[i]);
+        }
+        return arguments[0].apply(null,arr1);
+    }
+    alert(applyAll(Math.max,2,-2,-3));
+    */
+
+    /*    function sumArgs(str) {
+        var reduce1 = [].reduce;
+        var argStr = reduce1.call(arguments,(function(sum, current) {
+            return sum + current;
+        }));
+        return argStr;
+    }
+    alert(sumArgs(1,2,4));
+    */
+</script>
+</body>
+</html>

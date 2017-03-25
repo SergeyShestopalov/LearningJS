@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*--------------------------------------------*/
+    //4.ФУНКЦИИ
+    var summ;
+    function print(text) {
+        document.write(text);
+    }
+    function count(x,y) {
+        summ = x + y;
+    }
+    print("Hello"+"<br>");
+    count(5,5);
+    print(summ);
+    /*--------------------------------------------*/
+
+//5.ЛОКАЛЬНЫЕ И ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ В ФУНКЦИЯХ
+
+    var userName= 'Вася';
+    function globAndLoc() {
+        var i=0;
+        for(i;i<5;i++){
+            alert(userName);
+        }
+    }
+    globAndLoc();
+
+//Внешние переменные
+
+    var userName2 = 'Вася';
+    function showMessage() {
+        userName2 = 'Петя';
+        var message = 'Привет, я ' + userName2;
+        alert(message);
+    }
+    showMessage();
+    alert(userName2);
+
+//глобальные переменные
+
+    var text;
+    var form;
+    function press() {
+        form=prompt("Messege? ");
+        text=prompt("What`s your name? ");
+    }
+    function showMessage(f, t){
+        if (t===null){
+            t='Имя не указано!';
+        }
+        alert(f+": "+t);
+    }
+
+    //showMessage(form,text);
+    function newFunc(fo,te) {
+        te=te||'Не передан';
+        alert(fo+": "+te);
+    }
+    press();
+    newFunc(form,text);
+
+//Проверка условий с окнами
+
+    function checkOfAge(a) {
+        if (a>18){
+            return true;
+        }
+        else {
+            return confirm("Родители разрешили? ");
+        }
+    }
+    var age = prompt("Ваш возраст? ");
+    if (checkOfAge(age)){
+        alert("Доступ разрешен!");
+    }
+    else alert("В доступе отказано!");
+
+//Проверка условия не стандартным образом
+
+    //1
+    function newFunc(fo,te) {
+        te=te||'Не передан';
+        alert(fo+": "+te);
+    }
+    press();
+    newFunc(form,text);
+
+    //2
+    function showMovie(age) {
+        if (!checkAge(age)) {
+            return;
+        }
+        alert( "Фильм не для всех" ); // (*)
+        // ...
+    }
+
+    //3
+    function checkAge(age) {
+        return (age>18)||confirm("Родители разрешили?");
+    }
+
+    //4
+    function checkAge_1(age) {
+        return (age>18)? true:confirm("Родители разрешили?");
+    }
+</script>
+</body>
+</html>
