@@ -6,6 +6,26 @@
 </head>
 <body>
 <script type="text/javascript">
+    function Calc() {
+        this.result = 0;
+        this.alert = function () {
+            var p = prompt("Введите операцю ", "2*2");
+            this.result = eval(p);
+        }
+    }
+    while (true) {
+        try {
+            var calculate = new Calc();
+            calculate.alert();
+            if (!calculate.result) {
+                throw new ReferenceError("Ошибка типа данных");
+            }
+            break;
+        } catch (e) {
+            alert("Ошибка, перевведите операцию" + " " + e.name);
+        }
+    }
+    alert(calculate.result);
 
 </script>
 </body>
